@@ -24,6 +24,7 @@ app.use(express.static(path.join(__dirname, "images")));
 app.use(express.static(path.join(__dirname, "news-image")));
 
 app.get('/news', async (req, res)=>{
+    console.log("news being sent")
     res.header("Access-Control-Allow-Origin", "*");
     await client.connect();
     const main_data = await client.db('news').collection('news').aggregate().toArray()
