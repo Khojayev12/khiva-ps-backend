@@ -2,7 +2,6 @@
   "dependencies": {
     "express": "^4.18.2",
     "mongodb": "^5.7.0",
-    "mongosh": "^1.10.4",
     "nodemon": "^3.0.1"
   },
   "name": "khiva-ps-backend",
