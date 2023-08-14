@@ -44,10 +44,12 @@ app.get("/galereya", async (req, res) => {
   res.json(main_data);
 });
 client.connect((err) => {
+  console.log("hayl gitler")
   if (err) {
     console.error(err);
     return false;
   }
   // connection to mongo is successful, listen for requests
   app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+  console.log("started mf")
 });
