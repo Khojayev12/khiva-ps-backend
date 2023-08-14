@@ -26,7 +26,6 @@ app.use(express.static(path.join(__dirname, "news-image")));
 app.get("/news", async (req, res) => {
   console.log("news being sent");
   res.header("Access-Control-Allow-Origin", "*");
-  await client.connect();
   const main_data = await client
     .db("news")
     .collection("news")
@@ -37,7 +36,6 @@ app.get("/news", async (req, res) => {
 
 app.get("/galereya", async (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
-  await client.connect();
   const main_data = await client
     .db("news")
     .collection("galereya")
@@ -45,5 +43,11 @@ app.get("/galereya", async (req, res) => {
     .toArray();
   res.json(main_data);
 });
-
-app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+client.connect((err) => {
+  if (err) {
+    console.error(err);
+    return false;
+  }
+  // connection to mongo is successful, listen for requests
+  app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+});
