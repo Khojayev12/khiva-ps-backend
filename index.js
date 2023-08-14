@@ -43,4 +43,4 @@ app.get("/galereya", async (req, res) => {
     .toArray();
   res.json(main_data);
 });
-app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on ${PORT} port`));
